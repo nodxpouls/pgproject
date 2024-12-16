@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FamiliaPG - Login e PIX</title>
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #E94F8B;
+            color: #fff;
+            text-align: center;
+        }
+        header {
+            background-color: #C82E68;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header .logo {
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+        header button {
+            background-color: #FFD54F;
+            color: #333;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        .form-container, .pix-container {
+            background: #fff;
+            color: #333;
+            margin: 20px auto;
+            padding: 20px;
+            width: 90%;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        input {
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #FFD54F;
+            border: none;
+            color: #333;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            width: 100%;
+        }
+        nav {
+            display: flex;
+            justify-content: space-around;
+            background: #E94F8B;
+            padding: 10px;
+        }
+        nav a {
+            color: #FFD54F;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: #C82E68;
+            padding: 10px;
+            display: flex;
+            justify-content: space-around;
+        }
+        footer a {
+            color: #FFD54F;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header>
+        <div class="logo">FamiliaPG</div>
+        <button onclick="showLogin()">Login</button>
+    </header>
+
+    <!-- Navegação -->
+    <nav>
+        <a href="#" onclick="showHome()">Popular</a>
+        <a href="#" onclick="showPix()">PIX</a>
+        <a href="#" onclick="showRegister()">Registro</a>
+    </nav>
+
+    <!-- Conteúdo -->
+    <div id="content">
+        <!-- Tela Inicial -->
+        <div class="form-container" id="home">
+            <h2>Bem-vindo ao FamiliaPG</h2>
+            <p>Selecione uma opção no menu.</p>
+        </div>
+
+        <!-- Tela de Login -->
+        <div class="form-container" id="login" style="display: none;">
+            <h2>Login</h2>
+            <input type="email" placeholder="E-mail" id="login-email" required>
+            <input type="password" placeholder="Senha" id="login-password" required>
+            <button onclick="alert('Login realizado com sucesso!')">Entrar</button>
+        </div>
+
+        <!-- Tela de Registro -->
+        <div class="form-container" id="register" style="display: none;">
+            <h2>Registro</h2>
+            <input type="text" placeholder="Nome" id="register-name" required>
+            <input type="email" placeholder="E-mail" id="register-email" required>
+            <input type="password" placeholder="Senha" id="register-password" required>
+            <button onclick="alert('Registro realizado com sucesso!')">Registrar</button>
+        </div>
+
+        <!-- Tela PIX -->
+        <div class="pix-container" id="pix" style="display: none;">
+            <h2>Dados para Depósito PIX</h2>
+            <p><strong>Nome:</strong> FamiliaPG Ltda.</p>
+            <p><strong>Chave PIX:</strong> pix@familiapg.com</p>
+            <p><strong>Valor Mínimo:</strong> R$ 10,00</p>
+            <button onclick="alert('Pix Copiado!')">Copiar Chave PIX</button>
+        </div>
+    </div>
+
+    <!-- Rodapé -->
+    <footer>
+        <a href="#" onclick="showHome()">Início</a>
+        <a href="#" onclick="showPix()">PIX</a>
+        <a href="#" onclick="showLogin()">Login</a>
+        <a href="#" onclick="showRegister()">Registro</a>
+    </footer>
+
+    <!-- Script -->
+    <script>
+        // Alternar entre as telas
+        function showHome() {
+            hideAll();
+            document.getElementById('home').style.display = 'block';
+        }
+
+        function showLogin() {
+            hideAll();
+            document.getElementById('login').style.display = 'block';
+        }
+
+        function showRegister() {
+            hideAll();
+            document.getElementById('register').style.display = 'block';
+        }
+
+        function showPix() {
+            hideAll();
+            document.getElementById('pix').style.display = 'block';
+        }
+
+        function hideAll() {
+            document.getElementById('home').style.display = 'none';
+            document.getElementById('login').style.display = 'none';
+            document.getElementById('register').style.display = 'none';
+            document.getElementById('pix').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
